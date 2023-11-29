@@ -4,7 +4,6 @@ const express = require('express');
 
 const app = express();
 
-const errorPage = require('./controllers/error');
 const sequelize = require('./util/database');
 const bodyParser = require('body-parser');
 const adminRoute = require('./routes/admin');

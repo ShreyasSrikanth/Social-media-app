@@ -8,5 +8,6 @@ Router.post('/items',adminController.postItem);
 Router.post('/items/updateComment',adminController.addComment);
 
 Router.get('/itemDetails',adminController.getItem);
+Router.get('/comments/:id',adminController.getComment);
 
 module.exports = Router;

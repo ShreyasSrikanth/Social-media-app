@@ -1,5 +1,7 @@
 const Items = require('../models/itemModel');
 const posts = require('../models/comments');
+const { post } = require('../routes/admin');
+const { where } = require('sequelize');
 
 exports.postItem = (req, res, next) => {
     const url = req.body.url;
@@ -52,4 +54,20 @@ exports.addComment = (req, res, next) => {
       res.status(500).json({ error: 'Failed to store information' });
     });
 };
+
+exports.getComment = (req,res,next) => {
+    const userId = req.params.id;
+
+    posts.findAll({
+        where: {
+            UserId: userId
+        }
+    })
+    .then(comment =>{
+            res.json(comment)
+        })
+        
+    }
+
+    
 
